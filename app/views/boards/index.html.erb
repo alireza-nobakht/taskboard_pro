@@ -1,7 +1,9 @@
 <h1>Boards</h1>
-<ul>
-  <% @boards.each do |board| %>
-    <li><%= link_to board.name, board %></li>
-  <% end %>
-</ul>
-<%= link_to "New Board", new_board_path %>
+
+<%= turbo_frame_tag "new_board" do %>
+  <%= render "form", board: Board.new %>
+<% end %>
+
+<%= turbo_frame_tag "boards" do %>
+  <%= render @boards %>
+<% end %>

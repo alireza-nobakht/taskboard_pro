@@ -1,0 +1,7 @@
+<%= turbo_stream.prepend "boards" do %>
+  <%= render @board %>
+<% end %>
+
+<%= turbo_stream.update "new_board" do %>
+  <%= render "form", board: Board.new %>
+<% end %>

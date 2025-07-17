@@ -9,15 +9,14 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
-  def new
-    @board = Board.new
-  end
-
   def create
     @board = Board.new(board_params)
 
     if @board.save
-      redirect_to @board, notice: "Board created!"
+      respond_to do |format|
+        format.html { redirect_to boards_path, notice: "Board created!" }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end
