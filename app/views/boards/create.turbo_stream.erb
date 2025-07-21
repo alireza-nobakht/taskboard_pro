@@ -1,3 +1,4 @@
+<%# turbo_stream.prepend "boards", partial: "boards/board", locals: { board: @board } %>
 <%= turbo_stream.prepend "boards" do %>
   <%= render @board %>
 <% end %>

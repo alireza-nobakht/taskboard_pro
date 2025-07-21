@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "boards#index"
 
   resources :boards do
-    resources :tasks, only: [ :create, :destroy, :update ]
+    resources :tasks
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

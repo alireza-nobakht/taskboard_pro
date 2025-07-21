@@ -4,6 +4,6 @@
   <%= render "form", board: Board.new %>
 <% end %>
 
-<%= turbo_frame_tag "boards" do %>
+<div id="boards">
   <%= render @boards %>
-<% end %>
+</div>
