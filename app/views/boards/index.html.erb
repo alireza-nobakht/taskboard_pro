@@ -7,3 +7,10 @@
 <div id="boards">
   <%= render @boards %>
 </div>
+
+
+<%= turbo_stream_from "board_activity" %>
+
+<div id="activity_feed" style="border: 2px dashed blue; padding: 1rem; margin-top: 1rem;">
+  <strong>Live Activity Feed:</strong>
+</div>

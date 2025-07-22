@@ -13,6 +13,9 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
+      Turbo::StreamsChannel.broadcast_append_to("board_activity", target: "activity_feed",
+        content: ApplicationController.renderer.render(partial: "boards/activity", locals: { board: @board })
+      )
       respond_to do |format|
         format.html { redirect_to boards_path, notice: "Board created!" }
         format.turbo_stream
