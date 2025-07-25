@@ -3,7 +3,7 @@
 
     <div class="board bg-gray-800 text-white p-4 rounded shadow" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
       <p><strong><%= board.name %></strong></p>
-      <%= link_to "show", board_path(board) %>
+      <%= link_to "show", board_path(board), data: { turbo_prefetch: false } %>
     </div>
  
 <% end %>
