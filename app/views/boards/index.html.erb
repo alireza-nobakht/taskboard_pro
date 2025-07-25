@@ -1,16 +1,17 @@
-<h1>Boards</h1>
+<h1 class="text-3xl font-bold mb-6 text-center text-white">Boards</h1>
 
 <%= turbo_frame_tag "new_board" do %>
-  <%= render "form", board: Board.new %>
+  <div class="mb-6">
+    <%= render "form", board: Board.new %>
+  </div>
 <% end %>
 
-<div id="boards">
+<div id="boards" class="space-y-4">
   <%= render @boards %>
 </div>
 
-
 <%= turbo_stream_from "board_activity" %>
 
-<div id="activity_feed" style="border: 2px dashed blue; padding: 1rem; margin-top: 1rem;">
+<div id="activity_feed" class="border-2 border-blue-500 p-4 mt-8 rounded bg-blue-100 text-blue-900">
   <strong>Live Activity Feed:</strong>
 </div>

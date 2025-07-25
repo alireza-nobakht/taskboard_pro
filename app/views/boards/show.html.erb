@@ -1,7 +1,8 @@
 <%= turbo_frame_tag dom_id(@board) do %>
-   <div class="board bg-green-800 text-white p-4 rounded shadow" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
-      <p><strong><%= @board.id %></strong></p>
-      <p><strong><%= @board.name %></strong></p>
-      <%= link_to "← Back", boards_path %>
-    </div>
+  <div class="board bg-green-800 text-white p-4 rounded shadow border border-gray-600 mb-4">
+    <p class="text-sm text-gray-300">ID: <%= @board.id %></p>
+    <p class="text-xl font-semibold"><%= @board.name %></p>
+
+    <%= link_to "← Back", boards_path, class: "inline-block mt-3 text-blue-300 hover:underline" %>
+  </div>
 <% end %>

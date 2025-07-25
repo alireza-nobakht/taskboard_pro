@@ -1,9 +1,15 @@
+<%= turbo_frame_tag dom_id(board), data: { controller: "toggle" } do %>
+  <div class="board bg-gray-800 text-white p-4 rounded shadow border border-gray-600 mb-4">
+    <p class="text-xl font-semibold mb-2"><%= board.name %></p>
 
-<%= turbo_frame_tag dom_id(board) do %>
+    <button data-action="click->toggle#toggle" class="px-3 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+      Toggle Details
+    </button>
 
-    <div class="board bg-gray-800 text-white p-4 rounded shadow" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
-      <p><strong><%= board.name %></strong></p>
-      <%= link_to "show", board_path(board), data: { turbo_prefetch: false } %>
+    <div data-toggle-target="details" class="hidden mt-3 text-sm text-gray-300">
+      ID: <%= board.id %>
     </div>
- 
+
+    <%= link_to "Show", board_path(board), data: { turbo_prefetch: false }, class: "inline-block mt-3 text-blue-300 hover:underline" %>
+  </div>
 <% end %>
