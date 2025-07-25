@@ -1,3 +1,7 @@
-<h1><%= @board.name %></h1>
-<div><%= link_to "Create Task", new_board_task_path(@board) %></div>
-<div><%= link_to "Back", boards_path %></div>
+<%= turbo_frame_tag dom_id(@board) do %>
+   <div class="board bg-green-800 text-white p-4 rounded shadow" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+      <p><strong><%= @board.id %></strong></p>
+      <p><strong><%= @board.name %></strong></p>
+      <%= link_to "← Back", boards_path %>
+    </div>
+<% end %>

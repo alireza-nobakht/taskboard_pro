@@ -1,5 +1,9 @@
 
-  <div class="board bg-gray-800 text-white p-4 rounded shadow" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-    <p><strong><%= board.name %></strong></p>
-    <%= link_to "Show", board_path(board) %>
-  </div>
+<%= turbo_frame_tag dom_id(board) do %>
+
+    <div class="board bg-gray-800 text-white p-4 rounded shadow" style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+      <p><strong><%= board.name %></strong></p>
+      <%= link_to "show", board_path(board) %>
+    </div>
+ 
+<% end %>
